@@ -1,0 +1,1 @@
+-- Tukaj bomo shranili SQL skripto
