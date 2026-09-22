@@ -5,10 +5,14 @@
 </head>
 <body>
 
-<h1>My First Template</h1>
-<p>Hello 2.Ri! ♥</p>
+	<h1>My First Template</h1>
+	<p>Hello 2.Ri! ♥</p>
 
-<img src="{{url_for('static', filename='logo.svg')}}" alt="my logo" width="300" height="300">
-
+	
+	{% if podatki ["uspeh"]%}
+	<i>Uspešno povezan na database</i>
+	{%else%}
+	<i>Neuspešno povezan na database</i>
+	{% endif %}
 </body>
 </html>

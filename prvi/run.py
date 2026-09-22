@@ -1,5 +1,10 @@
+#System libaries
 from flask import Flask
 from flask import render_template
+
+#my libaries
+from module import dbConfig
+from module import dbLogic
 
 app = Flask(__name__)
 
@@ -9,8 +14,12 @@ APP_PORT = 80
 # GLAVNI ROUTE APLIKACIJE
 
 @app.route("/", methods = ["GET", "POST"])
-def hello_world():
-    return render_template("index.html")
+def index():
+    data = {
+        "uspeh" : False 
+    }
+    data["uspeh"] = dbLogic.getAll()
+    return render_template("index.html", podatki = data)
 
 
 # ZAGON APLIKACIJE

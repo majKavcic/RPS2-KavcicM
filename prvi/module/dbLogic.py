@@ -1,4 +1,4 @@
-from module import dbConfin
+from module import dbConfig
 
 def getAll(param =""):
     
