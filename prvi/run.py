@@ -29,6 +29,7 @@ def index():
         
         if data["visina"] and data["teza"]:
             data["itm"] = izracunaj_itm(float(data["visina"]), float(data["teza"]))
+            dbLogic.insertData(float(data["visina"]), float(data["teza"]), data["itm"])
         print(data)
     
     return render_template("index.html", podatki = data)
@@ -45,3 +46,9 @@ def dnevnik():
 # ZAGON APLIKACIJE
 app.config["DEBUG"] = True
 app.run(host = APP_ADDRESS, port = APP_PORT)
+
+@app.route("/izbris/<sID>")
+def dnevnik_izbrisi(sID):
+    ID = int(sID)
+    dbLogic.deleteItm(ID)
+    return redirect("/dnevnik")
